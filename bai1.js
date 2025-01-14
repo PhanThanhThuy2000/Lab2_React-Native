@@ -39,18 +39,21 @@ const allStudent = class1.concat(class2);
 const allStudent1 = allStudent.filter(student => student?.status !== 'failed')
 
 // Sắp xếp danh sách theo avgPoint giảm dần
-// Sắp xếp theo avgPoint giảm dần
-const studentAvgPoint = [...allStudent1].sort((a, b) => b.avgPoint - a.avgPoint);
+// Sắp xếp theo avgPoint tăng dần
+const studentAvgPoint = [...allStudent1].sort((a, b) => a.avgPoint - b.avgPoint);
 
 // Sắp xếp theo avgTraningPoint giảm dần
 const studentAvgTraningPoint = [...allStudent1].sort((a, b) => b.avgTraningPoint - a.avgTraningPoint);
 
-// Lấy thông tin sinh viên có điểm cao nhất (Ong vàng)
-const ongVang = studentAvgPoint[0];
+// Lấy thông tin điểm cao nhất (Ong vàng)
+const diemCaoNhat = studentAvgPoint[studentAvgPoint.length - 1].avgPoint;
 
 // In ra danh sách đã sắp xếp và thông tin Ong vàng
-console.log('Danh sách sinh viên đã sắp xếp theo điểm trung bình giam dần:', studentAvgPoint);
-console.log('Danh sách sinh viên đã sắp xếp theo điểm đào tạo giam dần:', studentAvgTraningPoint);
-console.log('Thông tin Ong vàng:', ongVang);
+console.log('Danh sách sinh viên đã sắp xếp theo điểm trung bình tăng dần:', studentAvgPoint);
+// console.log('Danh sách sinh viên đã sắp xếp theo điểm đào tạo giam dần:', studentAvgTraningPoint);
+
+const listOngVang = studentAvgPoint.filter(sv => sv.avgPoint == diemCaoNhat)
+
+console.log('Thông tin các Ong vàng:', listOngVang);
 
 
